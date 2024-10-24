@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  get 'points/index'
-  get 'admin/dashboard'
   devise_for :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  
+  authenticated :user do
+    get 'admin/dashboard', to: 'admin#dashboard', as: :admin_dashboard
+  end
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  root to: 'points#index'
 end
