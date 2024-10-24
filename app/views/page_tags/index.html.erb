@@ -1,0 +1,9 @@
+<h1>Page Tags</h1>
+
+<ul>
+  <% @page_tags.each do |page_tag| %>
+    <li>
+      <%= link_to page_tag.name, page_tag_path(page_tag) %>
+    </li>
+  <% end %>
+</ul>

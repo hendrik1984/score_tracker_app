@@ -1,0 +1,18 @@
+<h1><%= @page_tag.name %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Points</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @page_tag_users.each do |page_tag_user| %>
+      <tr>
+        <td><%= page_tag_user.user.email %></td>
+        <td><%= page_tag_user.points %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
