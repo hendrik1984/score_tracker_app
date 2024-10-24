@@ -14,15 +14,22 @@ User.create!(
   points: 0
 )
 
-# Create five regular users
+# Create PageTags
+page1 = PageTag.create!(name: 'Batch 1')
+page2 = PageTag.create!(name: 'Batch 2')
+
+# Create users and assign them to pages with different points
 5.times do |i|
-  User.create!(
+  user = User.create!(
     email: "user#{i+1}@example.com",
     password: 'password',
     password_confirmation: 'password',
-    admin: false,
-    points: 0
+    admin: false
   )
+
+  # Assign users to pages with different points
+  PageTagUser.create!(user: user, page_tag: page1, points: 0)
+  PageTagUser.create!(user: user, page_tag: page2, points: 0)
 end
 
-puts "Seeded 1 admin and 5 regular users."
+puts "Seeded 5 users with points across two PageTags."
